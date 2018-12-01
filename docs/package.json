@@ -1,0 +1,12 @@
+{
+  "name": "store-api-docs",
+  "version": "1.0.0",
+  "description": "store-api-docs",
+  "author": "store-api-docs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.15.2"
+  }
+}

@@ -1,0 +1,38 @@
+version: '3'
+services:
+  app:
+    container_name: video-store.api
+    image: video-store.api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+    - database
+    - test_database
+  
+  database:
+    container_name: video-store.database
+    image: mysql:8
+    environment:
+    - MYSQL_USER=user
+    - MYSQL_DATABASE=videostore
+    - MYSQL_PASSWORD=password
+    - MYSQL_ROOT_PASSWORD=password
+    - TZ=America/Sao_Paulo
+    command: "--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_unicode_ci --skip-character-set-client-handshake"
+    logging:
+      driver: none
+
+  test_database:
+    container_name: video-store.test_database
+    image: mysql:8
+    environment:
+    - MYSQL_USER=user
+    - MYSQL_DATABASE=test
+    - MYSQL_PASSWORD=password
+    - MYSQL_ROOT_PASSWORD=password
+    - TZ=America/Sao_Paulo
+    command: "--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_unicode_ci --skip-character-set-client-handshake"
+    logging:
+      driver: none
+

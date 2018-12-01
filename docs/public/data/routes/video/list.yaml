@@ -1,0 +1,49 @@
+summary: List Videos
+description: This endpoint returns a paginated list of videos. 
+tags:
+  - video
+parameters:
+  - name: title
+    in: query
+    description: Search string, will search in title
+    type: string
+  - name: limit
+    in: query
+    description: Number of videos listed
+    type: integer
+    minimum: 0
+    default: 15
+  - name: offset
+    in: query
+    description: Offset for pagination
+    type: integer
+    minimum: 0
+    default: 0
+  - name: order
+    in: query
+    description: How to order results (asc, desc)
+    type: string
+    default: asc
+responses:
+  "200":
+    description: "Response"
+    schema:
+      type: "object"
+      properties:
+        pagination:
+          type: object
+          $ref: "../../../../definitions/pagination.yaml"
+        data:
+          type: "array"
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+                example: Pulp Fiction
+              director:
+                type: string
+                example: Quentin Tarantino
+              copies:
+                type: integer
+                example: 2

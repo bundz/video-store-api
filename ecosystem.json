@@ -1,0 +1,38 @@
+{
+  "apps": [
+    {
+      "name": "app",
+      "script": "npm start",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "max_memory_restart": "1024M",
+      "exec_mode": "fork_mode",
+      "instances": 1,
+      "env": {
+        "APP_DATABASE_HOST": "database",
+        "APP_DATABASE_USER": "root",
+        "APP_DATABASE_NAME": "videostore",
+        "APP_DATABASE_PASSWORD": "password",
+        "APP_SECURITY_BCRYPTLENGTH": 8
+      }
+    },
+    {
+      "name": "test",
+      "script": "npm test",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "max_memory_restart": "1024M",
+      "exec_mode": "fork_mode",
+      "autorestart": false,
+      "instances": 1,
+      "env": {
+        "TEST": true,
+        "APP_DATABASE_HOST": "test_database",
+        "APP_DATABASE_USER": "root",
+        "APP_DATABASE_NAME": "test",
+        "APP_DATABASE_PASSWORD": "password",
+        "APP_SECURITY_BCRYPTLENGTH": 8
+      }
+    }
+  ]
+}

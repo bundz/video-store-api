@@ -1,0 +1,48 @@
+swagger: "2.0"
+info: 
+  version: "1.0.0"
+  title: "Video Store"
+  x-logo:
+    url: 'logo.jpg'
+    altText: Video Store Logo
+tags:
+  - name: user
+    description: User Endpoints
+  - name: auth
+    description: Auth Endpoints
+  - name: video
+host: "videostore.vm"
+basePath: "/"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "application/json"
+securityDefinitions:
+  BasicAuth:
+    type: basic
+paths:
+  /user:
+    post:
+      $ref: routes/user/create.yaml
+  /auth/login:
+    post:
+      $ref: routes/auth/login.yaml
+  /auth/logout:
+    get:
+      $ref: routes/auth/logout.yaml
+  /video:
+    get:
+      $ref: routes/video/list.yaml
+  /video/{id}/rent:
+    post:
+      $ref: routes/video/rent.yaml
+      security:
+        - BasicAuth: []
+  /video/{id}/return:
+    post:
+      $ref: routes/video/return.yaml
+      security:
+        - BasicAuth: []
+  

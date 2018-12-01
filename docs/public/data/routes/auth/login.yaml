@@ -1,0 +1,29 @@
+summary: Login
+description: Login User
+tags:
+  - auth
+parameters:
+  - in: body
+    description: Mail and password of the user
+    required: true
+    schema: 
+      type: object
+      required:
+        - mail
+        - password
+      properties:
+        mail:
+          type: "string"
+          maxLength: 100
+        password:
+          type: string
+          pattern: /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/
+responses:
+  '200':
+    description: Response
+    schema:
+      type: object
+      properties:
+        data:
+          type: boolean
+          example: true

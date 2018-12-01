@@ -1,0 +1,13 @@
+summary: Logout
+description: Logout User
+tags:
+  - auth
+responses:
+  '200':
+    description: Response
+    schema:
+      type: object
+      properties:
+        data:
+          type: boolean
+          example: true

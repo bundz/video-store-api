@@ -1,0 +1,17 @@
+summary: Rent Video
+description: Rent Video 
+tags:
+  - video
+parameters:
+  - name: id
+    in: params
+    description: video id
+    type: integer
+responses:
+  "200":
+    description: "Response"
+    schema:
+     properties:
+        data:
+          type: boolean
+          example: true

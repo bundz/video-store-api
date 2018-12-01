@@ -1,0 +1,54 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "plugins": [
+    "prettier",
+    "chai-expect-keywords"
+  ],
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "no-unused-vars": [
+      "warn"
+    ],
+    "no-param-reassign": [
+      "warn"
+    ],
+    "no-use-before-define": [
+      "warn"
+    ],
+    "global-require": [
+      "warn"
+    ],
+    "import/no-dynamic-require": [
+      "warn"
+    ],
+    "class-methods-use-this": [
+      "error",
+      { "exceptMethods": ["query", "isValidPassword"] }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "backtick"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "prettier/prettier": [
+      "error"
+    ]    
+  }
+}

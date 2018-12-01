@@ -1,0 +1,32 @@
+summary: Create User
+description: Create a New User
+tags:
+  - user
+parameters:
+  - name: "user"
+    in: "body"
+    description: "User to add"
+    required: true
+    schema: 
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 120
+          minLegth: 2
+        mail:
+          type: string
+          maxLength: 100
+          minLength: 5
+        password:
+          type: string
+          pattern: /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/
+responses:
+  '200':
+    description: "Response"
+    schema:              
+      type: object
+      properties:
+        data:
+          type: boolean
+          example: true

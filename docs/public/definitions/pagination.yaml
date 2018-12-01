@@ -1,0 +1,20 @@
+Pagination:
+type: object
+properties:
+  isLastPage:
+    type: boolean
+  isFirstPage:
+    type: boolean
+  limit:
+    type: integer
+  offset:
+    type: integer
+  count:
+    type: integer
+  links:
+    type: object
+    properties:
+      next:
+        type: string
+      prev:
+        type: string
